@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     
   }
 
-  title = 'Dating App';
+  title = 'Dating Apps';
   users: any;
 
     ngOnInit(): void {
