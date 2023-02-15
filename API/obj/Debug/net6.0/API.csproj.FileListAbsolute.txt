@@ -68,3 +68,5 @@ C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\api\bin\Debug\net6.0\System.
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\Data\UserSeedData.json
+C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\Newtonsoft.Json.dll
