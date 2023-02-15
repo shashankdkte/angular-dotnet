@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Dating App</a>
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">Dating App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" *ngIf="(accountService.currentUser$ | async)">
-                    <a class="nav-link active" aria-current="page" href="#">Matches</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/members"
+                       routerLinkActive="active">Matches</a>
                 </li>
                 <li class="nav-item" *ngIf="(accountService.currentUser$ | async)">
-                    <a class="nav-link" href="#">Lists</a>
+                    <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
                 </li>
                 <li class="nav-item" *ngIf="(accountService.currentUser$ | async)">
-                    <a class="nav-link" href="#">Messages</a>
+                    <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
                 </li>
 
             </ul>
@@ -35,8 +36,10 @@
                     </ul>
                 </li>
             </ul>
-            <button *ngIf="(accountService.currentUser$ | async)" class="btn btn-outline-success" type="submit" (click)="logout()">Logout</button>
-            <form *ngIf="!(accountService.currentUser$ | async)" class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+            <button *ngIf="(accountService.currentUser$ | async)" class="btn btn-outline-success" type="submit"
+                    (click)="logout()">Logout</button>
+            <form *ngIf="!(accountService.currentUser$ | async)" class="d-flex" #loginForm="ngForm" (ngSubmit)="login()"
+                  autocomplete="off">
                 <input name="username" class="form-control me-2" type="search" [(ngModel)]="model.username"
                        placeholder="Username">
                 <input name="password" class="form-control me-2" type="search" [(ngModel)]="model.password"
