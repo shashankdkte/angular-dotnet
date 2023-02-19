@@ -19,6 +19,10 @@ baseUrl = environment.apiUrl
     return this.http.get<Member>(this.baseUrl + "users/" + username);
   }
 
+  updateMember(member:Member)
+  {
+    return this.http.put<Member>(this.baseUrl + "users",member);
+  }
   getHttpOptions()
   {
     const userString = localStorage.getItem("user");
