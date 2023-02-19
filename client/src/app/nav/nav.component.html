@@ -31,6 +31,7 @@
                        aria-expanded="false">
                         Welcome {{user.username | titlecase}}
                     </a>
+                    
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -40,10 +41,14 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
+                
             </ul>
-
+            <a class="nav-link me-3" routerLink="/member/edit" routerLinkActive="active"><i class="fa fa-edit"></i></a>   
             <button *ngIf="(accountService.currentUser$ | async)" class="btn btn-outline-success" type="submit"
                     (click)="logout()">Logout</button>
+                    
+                    
+                    
             <form *ngIf="!(accountService.currentUser$ | async)" class="d-flex" #loginForm="ngForm" (ngSubmit)="login()"
                   autocomplete="off">
                 <input name="username" class="form-control me-2" type="search" [(ngModel)]="model.username"
