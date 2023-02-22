@@ -23,6 +23,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     NotFoundComponent,
     MemberCardComponent,
     MemberEditComponent,
+    PhotoEditorComponent,
     
   ],
   imports: [
@@ -49,7 +52,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     HttpClientModule,
     FormsModule, 
     NgxGalleryModule,
-   
+   FileUploadModule,
     ToastrModule.forRoot(
       {
         positionClass:"toast-bottom-right"

@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
@@ -22,6 +23,7 @@
     "bootstrap": "^5.2.3",
     "bootswatch": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "ng2-file-upload": "^4.0.0",
     "ngx": "^2.4.0",
     "ngx-bootstrap": "^10.2.0",
     "ngx-toastr": "^14.3.0",

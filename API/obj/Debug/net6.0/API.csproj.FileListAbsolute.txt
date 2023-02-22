@@ -72,3 +72,4 @@ C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\Data\Us
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\91937\Desktop\Work\AngularDotnet\DatingApp\API\bin\Debug\net6.0\CloudinaryDotNet.dll
