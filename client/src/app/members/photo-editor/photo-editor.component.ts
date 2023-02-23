@@ -3,8 +3,10 @@ import { FileUploader } from 'ng2-file-upload';
 import { take } from 'rxjs';
 
 import { Member } from 'src/app/_models/member';
+import { Photo } from 'src/app/_models/photo';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
+import { MemberService } from 'src/app/_services/member.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,7 +20,7 @@ export class PhotoEditorComponent implements OnInit {
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
   user: User | undefined;
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: AccountService,private memberService:MemberService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next: user => {
         if (user) {
@@ -36,10 +38,28 @@ export class PhotoEditorComponent implements OnInit {
   {
     this.hasBaseDropZoneOver = e;
   }
+
+  setMainPhoto(photo: Photo)
+  {
+    this.memberService.setMainPhoto(photo.id).subscribe({
+      next: () => {
+        if (this.user && this.member)
+        {
+          this.user.photoUrl = photo.url;
+          this.accountService.setCurrentUser(this.user);
+          this.member.photoUrl = photo.url;
+          this.member.photos.forEach(p => {
+            if (p.isMain) p.isMain = false;
+            if (p.id == photo.id) p.isMain = true;
+          })
+          }
+      }
+    })
+  }
   initializeUploader()
   {
     this.uploader = new FileUploader({
-      url: this.baseUrl + '/users/add-photo',
+      url: this.baseUrl + 'users/add-photo',
       authToken: 'Bearer ' + this.user?.token,
       isHTML5: true,
       allowedFileType: ['image'],
@@ -56,6 +76,7 @@ export class PhotoEditorComponent implements OnInit {
       if (response)
       {
         const photo = JSON.parse(response);
+        console.log(photo);
         this.member?.photos.push(photo);
         }
     }

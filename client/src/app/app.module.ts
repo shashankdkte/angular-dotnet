@@ -52,12 +52,13 @@ import { FileUploadModule } from 'ng2-file-upload';
     HttpClientModule,
     FormsModule, 
     NgxGalleryModule,
-   FileUploadModule,
+ 
     ToastrModule.forRoot(
       {
         positionClass:"toast-bottom-right"
       }
     ), 
+    FileUploadModule,
   ],
   exports: [
     NgxGalleryModule,

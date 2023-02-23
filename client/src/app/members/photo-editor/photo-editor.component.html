@@ -1,5 +1,5 @@
 <div class="row mb-3" *ngIf="member">
-    <div class="col-2" *ngFor="let photo of member.photos">
+    <div class="col-2 mb-1" *ngFor="let photo of member.photos">
         <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1">
         <div class="text-center">
             <button class="btn btn-sm">Main</button>
@@ -9,7 +9,7 @@
 </div>
 <div class="row">
 
-    <div class="col--3">
+    <div class="col-3">
 
         <h3>Add Photos</h3>
 
@@ -18,13 +18,10 @@
             <i class="fa fa-upload fa-3x"></i>
             Drop Photos here
         </div>
-
-
-        Multiple
-        <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br />
-
-        Single
-        <input type="file" ng2FileSelect [uploader]="uploader" />
+        <label for="" class="">Multiple</label>
+        <input type="file" class="m-2" ng2FileSelect [uploader]="uploader" multiple /><br />
+        <label for="" class="">Single</label>
+        <input type="file" class="m-3" ng2FileSelect [uploader]="uploader" />
     </div>
 
     <div class="col-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
@@ -57,15 +54,15 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-success btn-s" (click)="uploader?.uploadAll()"
+            <button type="button" class="btn btn-success btn-s m-2" (click)="uploader?.uploadAll()"
                     [disabled]="!uploader?.getNotUploadedItems()?.length">
                 <span class="fa fa-upload"></span> Upload all
             </button>
-            <button type="button" class="btn btn-warning btn-s" (click)="uploader?.cancelAll()"
+            <button type="button" class="btn btn-warning btn-s m-2" (click)="uploader?.cancelAll()"
                     [disabled]="!uploader?.isUploading">
                 <span class="fa fa-ban"></span> Cancel all
             </button>
-            <button type="button" class="btn btn-danger btn-s" (click)="uploader?.clearQueue()"
+            <button type="button" class="btn btn-danger btn-s m-2" (click)="uploader?.clearQueue()"
                     [disabled]="!uploader?.queue?.length">
                 <span class="fa fa-trash"></span> Remove all
             </button>

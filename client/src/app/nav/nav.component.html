@@ -25,13 +25,16 @@
                 </li>
             </ul>
 
-            <ul *ngIf="(accountService.currentUser$ | async) as user" style="margin-right: 16px; margin-top: 8px;">
-                <li class="nav-item dropdown" style="list-style: none;">
+            <ul *ngIf="(accountService.currentUser$ | async) as user"
+                style="margin-right: 16px; margin-top: 8px;display:flex;">
+                <img src="{{user.photoUrl|| './assets/user.png'}}" alt="user photo">
+                <li class="nav-item dropdown" style="list-style: none; margin-top:1rem">
+
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
                         Welcome {{user.username | titlecase}}
                     </a>
-                    
+
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -41,14 +44,14 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                
+
             </ul>
-            <a class="nav-link me-3" routerLink="/member/edit" routerLinkActive="active"><i class="fa fa-edit"></i></a>   
+            <a class="nav-link me-3" routerLink="/member/edit" routerLinkActive="active"><i class="fa fa-edit"></i></a>
             <button *ngIf="(accountService.currentUser$ | async)" class="btn btn-outline-success" type="submit"
                     (click)="logout()">Logout</button>
-                    
-                    
-                    
+
+
+
             <form *ngIf="!(accountService.currentUser$ | async)" class="d-flex" #loginForm="ngForm" (ngSubmit)="login()"
                   autocomplete="off">
                 <input name="username" class="form-control me-2" type="search" [(ngModel)]="model.username"
