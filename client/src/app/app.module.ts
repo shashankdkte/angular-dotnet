@@ -6,7 +6,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MembersListComponent } from './members/members-list/members-list.component';
@@ -25,6 +25,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    TextInputComponent,
     
   ],
   imports: [
@@ -52,6 +54,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     HttpClientModule,
     FormsModule, 
     NgxGalleryModule,
+    ReactiveFormsModule,
  
     ToastrModule.forRoot(
       {
