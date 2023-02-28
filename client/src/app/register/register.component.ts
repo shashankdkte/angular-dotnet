@@ -3,6 +3,7 @@ import { Component, OnInit, Output ,EventEmitter} from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,8 +14,10 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
 export class RegisterComponent implements OnInit {
   model: any = {};
   @Output() iscancelRegister = new EventEmitter<boolean>();
-  registerForm: FormGroup  = new FormGroup({});
-  constructor(private accountService:AccountService,private toastr:ToastrService,private fb:FormBuilder) { }
+  registerForm: FormGroup = new FormGroup({});
+  validationErrors: string[] | undefined;
+  constructor(private accountService:AccountService,private toastr:ToastrService,private fb:FormBuilder,
+    private router:Router) { }
 
   initializeForm()
   {
@@ -45,16 +48,16 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     console.log(this.registerForm?.value);
-  //   this.accountService.register(this.model).subscribe({
-  //     next: (response) => {
-  //       console.log(response);
-  //       this.cancel();
-  //      },
-  //     error: (error) => {
-  //       console.log(error);
-  //       this.toastr.error(error.error);
-  //     }
-  // })
+    this.accountService.register(this.registerForm.value).subscribe({
+      next: (response) => {
+        console.log(response);
+       this.router.navigateByUrl('/members')
+       },
+      error: (error) => {
+        console.log(error);
+       this.validationErrors = error
+      }
+  })
    }
   cancel() {
     let register = false

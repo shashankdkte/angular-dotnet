@@ -50,12 +50,13 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
     NgxGalleryModule,
     ReactiveFormsModule,
- 
+  
     ToastrModule.forRoot(
       {
         positionClass:"toast-bottom-right"
