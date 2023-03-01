@@ -32,14 +32,29 @@ namespace API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<PagedList<MemberDTO>>> GetUsers([FromQuery]UserParams userParams)
+        public async Task<ActionResult<PagedList<MemberDTO>>> GetUsers(
+            [FromQuery] UserParams userParams
+        )
         {
             // var users = await _userRepository.GetUsersAsync();
             // var usersToReturn = _mapper.Map<IEnumerable<MemberDTO>>(users);
             // return Ok(usersToReturn);
+            var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUserName());
+            userParams.CurrentUserName = currentUser.UserName;
+
+            if (string.IsNullOrEmpty(userParams.Gender))
+            {
+                userParams.Gender = currentUser.Gender == "male" ? "female" : "male";
+            }
             var users = await _userRepository.GetMembersAsync(userParams);
-            Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize,
-            users.TotalCount, users.TotalPages));
+            Response.AddPaginationHeader(
+                new PaginationHeader(
+                    users.CurrentPage,
+                    users.PageSize,
+                    users.TotalCount,
+                    users.TotalPages
+                )
+            );
             return Ok(users);
         }
 

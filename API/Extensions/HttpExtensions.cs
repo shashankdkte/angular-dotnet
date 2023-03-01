@@ -11,7 +11,7 @@ namespace API.Extensions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
-            response.Headers.Add("Paginatio", JsonSerializer.Serialize(header, jsonOptions));
+            response.Headers.Add("Pagination", JsonSerializer.Serialize(header, jsonOptions));
             response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
         }
     }

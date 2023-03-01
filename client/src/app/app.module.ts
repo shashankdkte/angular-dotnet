@@ -27,7 +27,6 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { FileUploadModule } from 'ng2-file-upload';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
