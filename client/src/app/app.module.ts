@@ -26,6 +26,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { TimeagoModule } from 'ngx-timeago';
+
 
 @NgModule({
   declarations: [
@@ -55,17 +57,18 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
     FormsModule, 
     NgxGalleryModule,
     ReactiveFormsModule,
-  
+    
     ToastrModule.forRoot(
       {
         positionClass:"toast-bottom-right"
       }
     ), 
     FileUploadModule,
+    TimeagoModule.forRoot()
   ],
   exports: [
     NgxGalleryModule,
-   
+   TimeagoModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
